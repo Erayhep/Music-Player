@@ -1,0 +1,394 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #8a2e31, #8a5c55);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#music-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+#music-image:hover {
+    transform: scale(1.05);
+}
+
+#music-details {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.singer {
+    font-size: 16px;
+    color: #b3b3b3;
+}
+
+#controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#controls div {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Butonlar arası boşluk */
+}
+
+#controls i {
+    font-size: 22px;
+    color: #1db954;
+    cursor: pointer;
+    padding: 8px;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls i:hover {
+    color: #1ed760;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sağ Kontroller (Çalma Listesi Butonu ve Ses Kontrolü) */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Butonlar arası boşluk */
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ses ikonu ve çubuk arası boşluk */
+}
+
+#progress {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#progress-bar {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(to right, #1db954 0%, #1db954 0%, #535353 0%, #535353 100%);
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+#progress-bar:hover {
+    background: #686868;
+}
+
+.times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    color: #b3b3b3;
+    margin-top: 10px;
+}
+
+#volume-bar {
+    width: 100px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #1db954 0%, #1db954 0%, #535353 0%, #535353 100%);
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#volume-bar:hover {
+    background: #686868;
+}
+
+#volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+#volume-bar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.music-list-panel {
+    position: absolute;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background: #1e1e1e;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif; /* Poppins fontu eklendi */
+}
+
+.music-list-panel.open {
+    right: 0;
+}
+
+.music-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.music-list-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px; /* Yazı boyutu küçültüldü */
+    font-weight: 500; /* Poppins fontu için orta kalınlık */
+}
+
+.music-list-header i {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px; /* İkon boyutu küçültüldü */
+    transition: color 0.3s ease;
+}
+
+.music-list-header i:hover {
+    color: #1db954;
+}
+
+#music-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    height: calc(100% - 60px);
+    text-align: center;
+}
+
+#music-list li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 14px; /* Yazı boyutu küçültüldü */
+    font-weight: 400; /* Poppins fontu için normal kalınlık */
+}
+
+#music-list li:hover {
+    background: rgba(255, 255, 255, 0.05); /* Daha hafif bir hover efekti */
+}
+
+#music-list li.active {
+    background: #1db954;
+    color: #ffffff;
+    font-weight: 500; /* Aktif şarkıyı biraz daha kalın yap */
+}
+/* Spotify Tarzı Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: #121212;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sidebar Başlık */
+.sidebar h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #b3b3b3;
+}
+
+/* Çalma Listesi Kartları */
+.playlist-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.playlist-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Playlist Kartları Resim */
+.playlist-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Playlist Bilgisi */
+.playlist-info h5 {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.playlist-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+/* Sidebar Scrollbar Gizleme */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #1db954;
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+/* Ana İçeriği Sidebar'dan Kaydır */
+.container {
+    margin-left: 150px;
+    transition: transform 0.3s ease-in-out; /* Geçiş efekti */
+}
+.music-list-panel.open ~ .container {
+    transform: translate(-50%, -50%) translateX(-50px);
+}
+
+/* Alt Navigasyon Çubuğu */
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.bottom-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+    margin: 0;
+}
+
+.bottom-navbar li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bottom-navbar li i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.bottom-navbar li:hover {
+    color: #1db954;
+}

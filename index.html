@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-query.css">
+    <title>Document</title>
+</head>
+<body>
+
+     <div class="sidebar">
+        <h2>Çalma Listeleri</h2>
+        <div class="playlist-card">
+            <img src="img/playlist/pl1.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 1</h5>
+                <p>Rahatlatıcı müzikler</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl2.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 2</h5>
+                <p>Yaz için hit parçalar</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl3.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 3</h5>
+                <p>Enerji veren şarkılar</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl4.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 4</h5>
+                <p>Gece yolculukları</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl5.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 5</h5>
+                <p>Hafif caz melodileri</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl6.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 6</h5>
+                <p>90’lar pop şarkıları</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl7.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 7</h5>
+                <p>Klasik rock ezgileri</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl8.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 8</h5>
+                <p>Sabah kahvesi eşliğinde</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl9.jpg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 9</h5>
+                <p>Chillout müzik</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl10.jpeg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 10</h5>
+                <p>Elektronik dans müziği</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl11.jpeg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 11</h5>
+                <p>Film müzikleri</p>
+            </div>
+        </div>
+        <div class="playlist-card">
+            <img src="img/playlist/pl12.jpeg" alt="Playlist Cover">
+            <div class="playlist-info">
+                <h5>Çalma Listesi 12</h5>
+                <p>Yatıştırıcı piyano melodileri</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <img id="music-image" src="" alt="">
+        <audio id="audio" src=""></audio>
+        <div id="music-details">
+            <p class="title"></p>
+            <p class="singer"></p>
+        </div>
+        <div id="progress">
+            <input type="range" id="progress-bar">
+            <div class="times">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div id="controls">
+            <div>
+                <i id="prev" class="fa-solid fa-backward-step"></i>
+                <i id="play" class="fa-solid fa-play"></i>
+                <i id="next" class="fa-solid fa-forward-step"></i>
+            </div>
+            <div class="right-controls">
+                <i id="toggle-music-list" class="fa-solid fa-bars"></i>
+                <div class="volume-container">
+                    <i id="volume" class="fa-solid fa-volume-high"></i>
+                    <input type="range" id="volume-bar" max="100" value="100">
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!-- Şarkı Listesi Paneli -->
+    <div id="music-list-panel" class="music-list-panel">
+        <div class="music-list-header">
+            <h3>Çalma Listesi</h3>
+            <i id="close-music-list" class="fa-solid fa-times"></i>
+        </div>
+        <ul id="music-list">
+            <!-- Şarkılar buraya dinamik olarak eklenecek -->
+        </ul>
+    </div>
+
+    <!-- Alt Navigasyon Çubuğu -->
+    <nav class="bottom-navbar">
+        <ul>
+            <li><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></li>
+            <li><i class="fa-solid fa-compass"></i><span>Keşfet</span></li>
+            <li><i class="fa-solid fa-magnifying-glass"></i><span>Arama</span></li>
+            <li><i class="fa-solid fa-user"></i><span>Profil</span></li>
+        </ul>
+    </nav>
+
+    <script src="music.js"></script>
+    <script src="musicplayer.js"></script>
+    <script src="app.js"></script>
+    <script src="keyboard.js"></script>
+</body>
+</html>

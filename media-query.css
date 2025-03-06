@@ -1,0 +1,177 @@
+/* Telefonlar için stil ayarları (Spotify tarzı) */
+@media only screen and (max-width: 768px) {
+    /* Sidebar'ı gizle */
+    .sidebar {
+        display: none;
+    }
+
+    /* Genel yapı */
+    body, html {
+        height: 100dvh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #121212; /* Spotify koyu arka plan */
+    }
+
+    /* Container'ı tam ekran yap, hizayı düzelt */
+    .container {
+        width: 100%;
+        height: 100dvh; /* Tam ekran yüksekliği */
+        padding: 20px;
+        border-radius: 0;
+        margin: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; /* Elemanlar arasında dengeli boşluk */
+        background: linear-gradient(to bottom, #181818 20%, #121212 100%); /* Spotify degrade */
+    }
+
+    /* Müzik resmini daha büyük ve merkezde yap */
+    #music-image {
+        height: 280px;
+        width: 280px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-top: 50px; /* Üstten biraz boşluk */
+    }
+
+    /* Çalma listesi paneli - Varsayılan olarak tamamen gizli */
+    .music-list-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* Tam ekran */
+        background: #121212; /* Spotify koyu tonu */
+        transition: transform 0.3s ease;
+        transform: translateY(100%); /* Ekranın altında gizli */
+        z-index: 1000; /* Diğer elemanların üstünde */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Çalma listesi açıkken tam ekran */
+    .music-list-panel.open {
+        transform: translateY(0); /* Yukarı kayarak açılır */
+    }
+
+    /* Müzik listesi içeriği */
+    #music-list {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    /* Müzik detaylarını merkezde yap */
+    #music-details {
+        text-align: center;
+        margin: 30px 0 0 0; /* Daha fazla boşluk */
+        width: 90%;
+    }
+
+    .title {
+        font-size: 24px; /* Biraz daha büyük */
+        font-weight: bold;
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .singer {
+        font-size: 18px; /* Biraz daha büyük */
+        color: #b3b3b3;
+        margin-top: 5px;
+    }
+
+    /* Progress bar ve zaman bilgileri */
+    #progress {
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    #progress-bar {
+        height: 4px; /* Spotify tarzı ince çubuk */
+        background: #535353;
+        width: 100%;
+        border-radius: 2px;
+    }
+
+    #progress-bar::-webkit-slider-thumb {
+        width: 12px;
+        height: 12px;
+        background: #ffffff; /* Spotify’da beyaz top */
+        border-radius: 50%;
+        -webkit-appearance: none;
+    }
+
+    #progress-bar::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+        background: #ffffff;
+        border-radius: 50%;
+    }
+
+    .times {
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between; /* Zamanlar arasında boşluk */
+        width: 90%;
+        margin: 5px auto 0 auto;
+        color: #b3b3b3;
+    }
+
+    /* Kontrol butonlarını hizala */
+    #controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px; /* Alttan boşluk */
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #controls i {
+        font-size: 26px;
+        padding: 12px;
+        background: transparent; /* Spotify’da arka plan yok */
+        border-radius: 50%;
+        transition: opacity 0.3s;
+        color: #ffffff;
+    }
+
+    #controls i:hover {
+        opacity: 0.8; /* Spotify tarzı solma */
+    }
+
+    #play {
+        background: #1db954; /* Spotify yeşili */
+        color: #ffffff;
+        font-size: 30px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+        transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    #play:hover {
+        background: #1ed760; /* Açık yeşil */
+    }
+
+    #play:active {
+        transform: scale(0.95); /* Basıldığında efekt */
+    }
+
+    /* Ses çubuğunu gizle */
+    .volume-container {
+        display: none !important;
+    }
+
+    /* Alt navigasyon çubuğunu gizle */
+    .bottom-navbar {
+        display: none;
+    }
+}
